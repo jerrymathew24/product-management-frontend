@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 
@@ -34,7 +34,7 @@ const SignUp = () => {
       <div className="col-span-4 bg-cyan-800 flex flex-col items-center justify-center h-screen text-white">
         <h1 className='text-2xl font-bold'>Welcome Back!</h1>
         <p>To keep connected with us please login with your personal info</p>
-        <button className='border border-white rounded-2xl text-white p-3 m-3 font-normal text-xs '>SIGN IN</button>
+        <Link to='/signIn' className='border border-white rounded-2xl text-white p-3 m-3 font-normal text-xs '>SIGN IN</Link>
       </div>
       <form onSubmit={handleSubmit} className="col-span-6 flex flex-col items-center justify-center h-screen" >
         <h1 className="text-center text-2xl font-bold text-yellow-500 mb-5" > Create Account</h1 >

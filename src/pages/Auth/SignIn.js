@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useAuth } from '../../context/auth'
 
 const SignIn = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [auth, setAuth] = useAuth()
     const navigate = useNavigate()
 
     //handle form submition
@@ -16,6 +18,12 @@ const SignIn = () => {
             const res = await axios.post(`${process.env.REACT_APP_API}/auth/login`, { email, password })
             if (res.data.success) {
                 toast.success(res.data.message)
+                setAuth({
+                    ...auth,
+                    user: res.data.user,
+                    token: res.data.token,
+                })
+                localStorage.setItem('auth', JSON.stringify(res.data))
                 navigate('/')
             } else {
                 toast.error(res.data.message)
@@ -38,7 +46,7 @@ const SignIn = () => {
             <div className="col-span-4 bg-cyan-800 flex flex-col items-center justify-center h-screen text-white">
                 <h1 className='text-2xl font-bold'>Hello Friend!</h1>
                 <p>Enter your personal details and start your journey with us</p>
-                <button className='border border-white rounded-2xl text-white p-3 m-3 font-normal text-xs '>SIGN UP</button>
+                <Link to='/signUp' className='border border-white rounded-2xl text-white p-3 m-3 font-normal text-xs '>SIGN UP</Link>
             </div>
         </div>
     )
