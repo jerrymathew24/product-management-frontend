@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage.js';
 import ProductDetails from './pages/ProductDetails';
 import PageNotFound from './pages/PageNotFound';
 import SignUp from './pages/Auth/SignUp.js';
-import Login from './pages/Auth/Login.js';
+import SignIn from './pages/Auth/SignIn.js';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/signUp' element={<SignUp />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/signIn' element={<SignIn />} />
         <Route path='/productDetails' element={<ProductDetails />} />
         <Route path='*' element={<PageNotFound />} />
 
