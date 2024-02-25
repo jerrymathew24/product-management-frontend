@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AddSubCategory = () => {
+const AddSubCategoryModel = () => {
     return (
         <div>AddSubCategory</div>
     )
 }
 
-export default AddSubCategory
+export default AddSubCategoryModel

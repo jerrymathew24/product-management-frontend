@@ -1,20 +1,20 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage.js';
 import ProductDetails from './pages/ProductDetails';
 import PageNotFound from './pages/PageNotFound';
 import SignUp from './pages/Auth/SignUp.js';
 import SignIn from './pages/Auth/SignIn.js';
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import AddCategory from './pages/Protected/AddCategory.js';
+import AddCategory from './pages/Models/AddCategoryModel.js';
 import PrivateRoute from './components/Routes/Private.js';
-import AddSubCategory from './pages/Protected/AddSubCategory.js';
-import AddProduct from './pages/Protected/AddProduct.js';
+import AddSubCategory from './pages/Models/AddSubCategoryModel.js';
+import AddProduct from './pages/Models/AddProductModel.js';
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
     <>
-      <ToastContainer />
+      <Toaster />
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/signUp' element={<SignUp />} />

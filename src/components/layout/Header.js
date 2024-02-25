@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { FaRegHeart } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { useAuth } from '../../context/auth';
-import { toast } from 'react-toastify';
+import toast from 'react-hot-toast'
 
 const Header = () => {
     const [auth, setAuth] = useAuth()
