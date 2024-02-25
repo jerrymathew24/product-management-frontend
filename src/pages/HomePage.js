@@ -4,11 +4,16 @@ import Layout from '../components/layout/Layout.js';
 import { Link } from 'react-router-dom';
 import { FaAngleRight } from "react-icons/fa6";
 import AddCategoryModel from './Models/AddCategoryModel.js';
+import AddSubCategoryModel from './Models/AddSubCategoryModel';
 
 const HomePage = () => {
     // const [auth, setAuth] = useAuth()
-    const [showMyModel, setShowMyModel] = useState(false)
-    const handleOnClose = () => setShowMyModel(false)
+    const [categoryModel, setCategoryModel] = useState(false)
+    const [subCategoryModel, setSubCategoryModel] = useState(false)
+
+    const handleCloseCategory = () => setCategoryModel(false)
+    const handleCloseSubCategory = () => setSubCategoryModel(false)
+
     return (
         <Layout>
             {/* <h1>homepage</h1>
@@ -18,11 +23,11 @@ const HomePage = () => {
 
                 <div className="inline-flex">
                     <div className="">
-                        <Link onClick={() => setShowMyModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Category</Link>
+                        <Link onClick={() => setCategoryModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Category</Link>
 
                     </div>
                     <div className="">
-                        <Link to='/addsubcategory' className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Sub Category</Link>
+                        <Link onClick={() => setSubCategoryModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Sub Category</Link>
                     </div>
                     <div className="">
                         <Link to='/addproduct' className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Product</Link>
@@ -30,7 +35,8 @@ const HomePage = () => {
                 </div>
 
             </div>
-            <AddCategoryModel visible={showMyModel} onClose={handleOnClose} />
+            <AddCategoryModel visible={categoryModel} onClose={handleCloseCategory} />
+            <AddSubCategoryModel visible={subCategoryModel} onClose={handleCloseSubCategory} />
         </Layout>
     )
 }
