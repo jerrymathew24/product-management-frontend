@@ -6,6 +6,7 @@ const AddSubCategoryModel = ({ visible, onClose }) => {
 
     const [categories, setCategories] = useState([]);
     const [name, setName] = useState("");
+    const [category, setCategory] = useState('')
     //get all cat
     const getAllCategory = async () => {
         try {
@@ -26,14 +27,17 @@ const AddSubCategoryModel = ({ visible, onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post("/categories/create-category", {
-                name,
+            const { data } = await axios.post("/subcategories/create-subcategory", {
+                category, name,
             });
             if (data?.success) {
                 toast.success(`${name} is created`);
+                setName('')
+                setCategory('')
                 console.log(data, "dataaaaaaaaaaaaaa success")
             } else {
                 toast.error(data.message);
+
             }
         } catch (error) {
             console.log(error);
@@ -50,8 +54,14 @@ const AddSubCategoryModel = ({ visible, onClose }) => {
             <div className="bg-white p-5 rounded-lg ">
                 <h1 className='p-4 text-center text-gray-600 font-medium'>Add Sub Category</h1>
                 <div className="flex flex-col ">
-                    <select className='border border-gray-400 text-gray-600 rounded-lg p-1 m-2'>
-                        <option  >Select Category</option>
+                    {/* <select onChange={(e) => setCategory(e.target.value._id)} className='border border-gray-400 text-gray-600 rounded-lg p-1 m-2'>
+                        <option value={category} >Select Category</option>
+                        {categories.map(category => (
+                            <option key={category._id} value={category._id}>{category.name}</option>
+                        ))}
+                    </select> */}
+                    <select className='border border-gray-400 text-gray-600 rounded-lg p-1 m-2' value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <option value="">Select Category</option>
                         {categories.map(category => (
                             <option key={category._id} value={category._id}>{category.name}</option>
                         ))}

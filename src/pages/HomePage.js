@@ -23,14 +23,14 @@ const HomePage = () => {
 
                 <div className="inline-flex">
                     <div className="">
-                        <Link onClick={() => setCategoryModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Category</Link>
+                        <Link onClick={() => setCategoryModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold inline-flex'>Add Category</Link>
 
                     </div>
                     <div className="">
-                        <Link onClick={() => setSubCategoryModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Sub Category</Link>
+                        <Link onClick={() => setSubCategoryModel(true)} className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold inline-flex'>Add Sub Category</Link>
                     </div>
                     <div className="">
-                        <Link to='/addproduct' className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold'>Add Product</Link>
+                        <Link to='/addproduct' className='bg-yellow-500 rounded-3xl p-4 m-2 text-white text-sm font-semibold inline-flex'>Add Product</Link>
                     </div>
                 </div>
 

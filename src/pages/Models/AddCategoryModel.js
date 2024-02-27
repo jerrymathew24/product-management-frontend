@@ -22,6 +22,7 @@ const AddCategoryModel = ({ visible, onClose }) => {
             });
             if (data?.success) {
                 toast.success(`${name} is created`);
+                setName('')
                 console.log(data, "dataaaaaaaaaaaaaa")
             } else {
                 toast.error(data.message);
